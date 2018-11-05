@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'rails-controller-testing'
+gem 'bcrypt',         '3.1.12'
 
 gem 'jquery-rails', '4.3.1'
 gem 'rails-ujs', '~> 0.1.0'
