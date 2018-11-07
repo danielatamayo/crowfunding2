@@ -1,1 +1,10 @@
-<% controller.redirect_to "/signup" %>
+<% provide(:title, 'All Organizations') %>
+<h1>Organizations</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>
