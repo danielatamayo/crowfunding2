@@ -1,13 +1,121 @@
 <div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
+  <h1 id = "j">United We Grow</h1>
 
   <h2>
-    This is the home page for the
-    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
+    A site for smart organizations.
   </h2>
 
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
 
+
+
+<div class="row">
+
+	<div class="col-sm-3">
+		<div class="row">
+			<ul>
+  				<p id = "org">
+				<%= link_to "All Organizations", users_path %>
+  				</p>
+                <ul id = "org2">
+				  <li><a href="#">Dapibus ac facilisis in</a></li>
+				  <li><a href="#">Morbi leo risus</a></li>
+				  <li><a href="#">Porta ac consectetur ac</a></li>
+				  <li><a href="#">Vestibulum at eros</a></li>
+				  <li><a href="#">Dapibus ac facilisis in</a></li>
+				  <li><a href="#">Morbi leo risus</a></li>
+                </ul>
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-lg-7">
+		 <div class="row">
+        <div class="col-md-11" id = "posts">
+            <div class="post-preview">
+                <%= link_to signup_path do%> 
+                    <h2 class="post-title" id = "posttitle">
+                        Fundraiser title
+                    </h2>
+                <% end%>
+                <h3 class="post-subtitle">
+                        Little description of fundraiser.
+                    </h3>
+                
+                <p class="post-meta">Posted by <a href="#">Organization</a> on September 18, 2014</p>
+            </div>
+            <hr>
+
+            <div class="post-preview">
+                <%= link_to signup_path do%> 
+                    <h2 class="post-title" id = "posttitle">
+                        Fundraiser title
+                    </h2>
+                <% end%>
+                <h3 class="post-subtitle">
+                        Little description of fundraiser.
+                    </h3>
+                
+                <p class="post-meta">Posted by <a href="#">Organization</a> on September 18, 2014</p>
+            </div>
+            <hr>
+            <div class="post-preview">
+                <%= link_to signup_path do%> 
+                    <h2 class="post-title">
+                        Fundraiser title
+                    </h2>
+
+                    <%end%>
+                    <h3 class="post-subtitle">
+                        Little description of fundraiser.
+                    </h3>
+                 
+                <p class="post-meta">Posted by <a href="#">Organization</a> on Aug24, 2014</p>
+            </div>
+            <hr>
+            <div class="post-preview">
+                <%= link_to signup_path do%> 
+                    <h2 class="post-title">
+                        Fundraiser title
+                    </h2>
+                    <%end%> 
+                    <h3 class="post-subtitle">
+                        Little description of fundraiser.
+                    </h3>
+                
+                <p class="post-meta">Posted by <a href="#">Organization</a> on July2014</p>
+            </div>
+            <hr>
+             <!--Pager  col-md-offset-1-->
+            <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts &rarr;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+	</div>
+
+	<div class="col-sm-2">
+		<div class="row">
+			<div class="list-group " id = "news">
+  				<div class="list-group-item list-group-item-action list-group-item-success">
+				<%= link_to "News", users_path %>
+  				</div>
+
+				  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+				  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+				  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+				  <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+				  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+				  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+				  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+				  <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+			</div>
+		</div>
+	</div>
+
+
+</div>
 
