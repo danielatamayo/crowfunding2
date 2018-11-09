@@ -9,6 +9,7 @@ end
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   def new
@@ -54,7 +55,7 @@ end
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
-
+=begin
     #logged-in user.
     def logged_in_user
       unless logged_in?
@@ -63,7 +64,7 @@ end
         redirect_to login_url
       end
     end
-
+=end
     #correct user
     def correct_user
       @user = User.find(params[:id])
