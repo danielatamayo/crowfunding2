@@ -5,7 +5,7 @@
         <%= render 'shared/user_info' %>
       </section>
       <section class="post_form">
-        <%= render 'shared/post_form' %>
+        <!--render 'shared/post_form' %>-->
       </section>
     </aside>
     <div class="col-md-8">
@@ -13,6 +13,7 @@
       <%= render 'shared/feed' %>
     </div>
   </div>
+
 <% else %>
 
 
@@ -28,7 +29,6 @@
 </div>
 
 <%end%>
-
 
 
 <div class="row">
@@ -68,33 +68,6 @@
             </div>
             <hr>
 
-            <div class="post-preview">
-                <%= link_to signup_path do%> 
-                    <h2 class="post-title" id = "posttitle">
-                        Fundraiser title
-                    </h2>
-                <% end%>
-                <h3 class="post-subtitle">
-                        Little description of fundraiser.
-                    </h3>
-                
-                <p class="post-meta">Posted by <a href="#">Organization</a> on September 18, 2014</p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <%= link_to signup_path do%> 
-                    <h2 class="post-title">
-                        Fundraiser title
-                    </h2>
-
-                    <%end%>
-                    <h3 class="post-subtitle">
-                        Little description of fundraiser.
-                    </h3>
-                 
-                <p class="post-meta">Posted by <a href="#">Organization</a> on Aug24, 2014</p>
-            </div>
-            <hr>
             <div class="post-preview">
                 <%= link_to signup_path do%> 
                     <h2 class="post-title">
