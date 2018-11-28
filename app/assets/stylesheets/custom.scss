@@ -11,6 +11,22 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+#donate {
+    width: 180px;
+    height: 40px;
+   font-size: 14px;
+    transition: width 0.8s, height 0.8s;
+}
+#donate:hover {
+    width: 250px;
+    height: 50px;
+    font-size: 18px;
+}
+
+#time{
+  
+  font-size: 13px;
+}
 /* universal */
 
 body {
@@ -254,6 +270,10 @@ font-weight: bold;
 .post-title{
   font-size: 2.5em;
   text-align: left;
+}
+
+#feed{
+  font-size: 4em;
 }
 
 

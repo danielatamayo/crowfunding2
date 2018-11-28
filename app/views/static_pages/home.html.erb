@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-4">
+    <aside class="col-md-3">
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
@@ -8,14 +8,20 @@
         <!--render 'shared/post_form' %>-->
       </section>
     </aside>
-    <div class="col-md-8">
-      <h3>Post Feed</h3>
+
+    <div class="col-md-8">      
+      <h3 id= "feed">Post Feed</h3>
       <%= render 'shared/feed' %>
+      <!--Pager  col-md-offset-1-->   
+      <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts &rarr;</a>
+                </li>
+            </ul>   
     </div>
   </div>
 
 <% else %>
-
 
 
 <div class="center jumbotron">
@@ -28,7 +34,7 @@
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
 
-<%end%>
+
 
 
 <div class="row">
@@ -39,14 +45,9 @@
   				<p id = "org">
 				<%= link_to "All Organizations", users_path %>
   				</p>
-                <ul id = "org2">
-				  <li><a href="#">Dapibus ac facilisis in</a></li>
-				  <li><a href="#">Morbi leo risus</a></li>
-				  <li><a href="#">Porta ac consectetur ac</a></li>
-				  <li><a href="#">Vestibulum at eros</a></li>
-				  <li><a href="#">Dapibus ac facilisis in</a></li>
-				  <li><a href="#">Morbi leo risus</a></li>
-                </ul>
+          <ul id = "org2">
+  				    <!--%= render @users %>-->
+           </ul>
 			</ul>
 		</div>
 	</div>
@@ -57,30 +58,19 @@
             <div class="post-preview">
                 <%= link_to signup_path do%> 
                     <h2 class="post-title" id = "posttitle">
-                        Fundraiser title
+                        Fffundraiser title
                     </h2>
                 <% end%>
                 <h3 class="post-subtitle">
                         Little description of fundraiser.
+                        
                     </h3>
                 
                 <p class="post-meta">Posted by <a href="#">Organization</a> on September 18, 2014</p>
             </div>
             <hr>
 
-            <div class="post-preview">
-                <%= link_to signup_path do%> 
-                    <h2 class="post-title">
-                        Fundraiser title
-                    </h2>
-                    <%end%> 
-                    <h3 class="post-subtitle">
-                        Little description of fundraiser.
-                    </h3>
-                
-                <p class="post-meta">Posted by <a href="#">Organization</a> on July2014</p>
-            </div>
-            <hr>
+
              <!--Pager  col-md-offset-1-->
             <ul class="pager">
                 <li class="next">
@@ -95,21 +85,21 @@
 		<div class="row">
 			<div class="list-group " id = "news">
   				<div class="list-group-item list-group-item-action list-group-item-success">
-				<%= link_to "News", users_path %>
+				<a href="https://www.utrgv.edu/en-us/about-utrgv/news/in-the-press/index.htm">UTRGV News</a>
   				</div>
-
-				  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-				  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-				  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-				  <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
-				  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-				  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-				  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-				  <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+				  <!--<a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>-->
+				 
 			</div>
 		</div>
 	</div>
 
 
 </div>
+
+<%end%>
+
+
+
+
+
 

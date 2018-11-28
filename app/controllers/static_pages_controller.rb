@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
       @post  = current_user.posts.build
       @feed_items = current_user.feed.paginate(page: params[:page])
     end
+    @users = User.search(params[:search])
   end
 
   def help
