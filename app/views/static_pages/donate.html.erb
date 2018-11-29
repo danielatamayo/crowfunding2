@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+   
+
+<div id="sform"> 
+   
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: $5.00</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Donate!"
+          data-amount="500"
+          data-locale="auto"></script>
+<% end %>
+
+</div>
+
+
+<!--<h3>heeello</h3>
+
+
+   <div id="sform"> 
+<form action="/confirmation" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_zrQukBFqEsaUUL0lFay6dQ0U"
+    data-amount="999"
+    data-name="Donate!"
+    data-description="Widget"
+    data-image=""
+    data-locale="auto">
+  </script>
+</form>
+</div>
+
+-->
+  </body>
+</html>
+
+
+
