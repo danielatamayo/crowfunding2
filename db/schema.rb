@@ -10,28 +10,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181123052747) do
+ActiveRecord::Schema.define(version: 20170502170520) do
 
-  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text "title"
-    t.text "body"
-    t.text "need"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_posts_on_user_id"
+  create_table "campaigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description",  limit: 65535
+    t.boolean  "subscription"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.string   "image"
+    t.integer  "goal"
+    t.integer  "raised"
+    t.boolean  "active",                     default: true
+  end
+
+  create_table "charges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "charge_id"
+    t.integer  "amount"
+    t.integer  "amount_refunded"
+    t.integer  "campaign_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "name"
+  end
+
+  create_table "stripe_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "account_type"
+    t.integer  "dob_month"
+    t.integer  "dob_day"
+    t.integer  "dob_year"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_line1"
+    t.string   "address_postal"
+    t.boolean  "tos"
+    t.string   "ssn_last_4"
+    t.string   "business_name"
+    t.string   "business_tax_id"
+    t.string   "personal_id_number"
+    t.string   "verification_document"
+    t.string   "acct_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.string "remember_digest"
-    t.boolean "admin", default: false
+    t.string   "organization",           default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "stripe_account"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "posts", "users"
 end
