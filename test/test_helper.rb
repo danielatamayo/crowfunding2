@@ -2,28 +2,31 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
+Stripe.api_key = ENV['SECRET_KEY']
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
-  include ApplicationHelper
 
-  def is_logged_in?
-    !session[:user_id].nil?
+  setup do
+    @user = users(:one)
+    @campaign = campaigns(:one)
   end
 
-  # Add more helper methods to be used by all tests here...
-  def log_in_as(user)
-    session[:user_id] = user.id
+  # Create a US bank token
+  def create_bank_token
+    @btok = Stripe::Token.create(
+      bank_account: { 
+        country: "US",
+        currency: "usd",
+        routing_number: "110000000",
+        account_number: "000123456789"
+      }
+    )
   end
 
-end
-
-class ActionDispatch::IntegrationTest
-
-  # Log in as a particular user.
-  def log_in_as(user, password: 'password', remember_me: '1')
-    post login_path, params: { session: { email: user.email,
-                                          password: password,
-                                          remember_me: remember_me } }
+  # Create a Stripe account to use for tests
+  def create_stripe_account
+    @stripe_account = Stripe::Account.create(managed: true, country: "us")
   end
 end
