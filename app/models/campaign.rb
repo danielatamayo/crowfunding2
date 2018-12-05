@@ -1,18 +1,19 @@
-class Post < ApplicationRecord
+class Campaign < ApplicationRecord
   belongs_to :user
-  default_scope -> { order(created_at: :desc) }
-  mount_uploader :picture, PictureUploader
-  validates :user_id, presence: true
-  validates :title, presence: true, length: { maximum: 140 }
-  validates :body, presence: true, length: { maximum: 200 }
-  validate  :picture_size
+  #belongs_to :stripeaccount
 
-    private
+  validates :title,
+  presence: true, length: { minimum: 5, maximum: 100 }
 
-    # Validates the size of an uploaded picture.
-    def picture_size
-      if picture.size > 5.megabytes
-        errors.add(:picture, "should be less than 5MB")
-      end
-    end
+  validates :goal, 
+  presence: true, numericality: { greater_than: 20, less_than: 1000000 }
+
+  validates :description,
+  presence: true, length: { minimum: 10, maximum: 5000 }
+
+
+
+#  def self.search(search)  
+ #  where("lower(stripeaccounts.first_name) LIKE :search OR lower(campaigns.title) LIKE :search", search: "%#{search.downcase}%").uniq   
+#end
 end

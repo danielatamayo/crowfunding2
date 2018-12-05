@@ -1,12 +1,9 @@
 module ApplicationHelper
+  def format_amount(amount)
+    sprintf('$%0.2f', amount.to_f / 100.0).gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,")
+  end
 
-  # Returns the full title on a per-page basis.       # Documentation comment
-  def full_title(page_title = '')                     # Method def, optional arg
-    base_title = "Ruby on Rails Tutorial Sample App"  # Variable assignment
-    if page_title.empty?                              # Boolean test
-      base_title                                      # Implicit return
-    else
-      page_title + " | " + base_title                 # String concatenation
-    end
+  def format_date(created)
+    Time.at(created).getutc.strftime("%m/%d/%Y")
   end
 end

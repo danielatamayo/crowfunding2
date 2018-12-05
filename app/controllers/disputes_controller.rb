@@ -33,7 +33,6 @@ class DisputesController < ApplicationController
 
   private
     def dispute_params
-      
       params.permit(:dispute_id, :dispute_text, :dispute_document)
     end
 end

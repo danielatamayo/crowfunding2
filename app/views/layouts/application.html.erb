@@ -1,28 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= full_title(yield(:title)) %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= yield(:page_title) %></title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all',
-                                              'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render 'layouts/shim' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application'  %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= yield(:header) %>
   </head>
+
   <body>
     <%= render 'layouts/header' %>
-    
-    <div class="container">
-<% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
-      
       <%= yield %>
-
-<%= render 'layouts/footer' %>
-      
-    </div>
-    <div class="container">
-    
-  </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
