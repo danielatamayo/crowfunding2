@@ -1,0 +1,40 @@
+<%= content_for :page_title, 'Fundraising Marketplace | Edit your campaign' %>
+<div class="container">
+  <div class="row topspace-lg">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="text-center">Edit your fundraiser</h1>
+      <div class="topspace-lg">
+        <%= render 'layouts/messages' %>
+        <div class="panel panel-default topspace">
+          <div class="panel-body">
+            
+                <%= form_for @campaign do | f | %>
+                  <div class="form-group">
+                    <%= f.label :title, "Title" %>
+                    <%= f.text_field :title, class: "form-control input-lg" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :goal, "Goal" %>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <%= f.text_field :goal, class: "form-control input-lg" %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :description, "Description" %>
+                    <%= f.text_area :description, class: "form-control input-lg" %>
+                  </div>
+                  <div class="form-group">
+                    <%= render 'images' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.button "Update Fundraiser", class: "btn btn-primary btn-lg btn-block btn-custom", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating Fundraiser..."} %>
+                  </div>
+                  <%= f.hidden_field :image %>
+                <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

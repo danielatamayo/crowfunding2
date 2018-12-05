@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Transfer ID</th>
+          <th>Destination</th>
+          <th>Amount</th>
+          <th>Deposit date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @payouts.each do |payout| %>
+          <tr>
+            <td>
+                <% if payout.type.eql?('bank_account') %>
+                  <i class="fa fa-bank text-muted"></i>
+                  <%= link_to payout.id, payout_path(payout.id), class: "leftspace" %>
+                <% else %>
+                  <i class="fa fa-credit-card text-muted"></i>
+                  <span class="leftspace"><%= payout.id %></span>
+                <% end %>
+              </td>
+            <td>
+
+              
+              <% if payout.type.eql?('bank_account') %>
+                <%= payout.destination.bank_name %> ending in <%= payout.destination.last4 %>
+              <% elsif payout.type.eql?('card') %>
+                <%= payout.destination.brand %> ending in <%= payout.destination.last4 %>
+              <% end %>
+            </td>
+            <td><%= format_amount(payout.amount) %></td>
+            <td><%= format_date(payout.arrival_date) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

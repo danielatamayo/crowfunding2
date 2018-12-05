@@ -1,0 +1,42 @@
+<%= content_for :page_title, 'Stripe Connect Example App' %>
+<% if params[:page] %>
+
+<% else %>
+  <div class="home-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center topspace-lg">
+          <%= render 'layouts/messages' %>
+          <h1 class="topspace-lg">WeUnited</h1>
+          <h3>A webpage for smart organizations</h3>
+          <p class="topspace-lg">
+            <% if user_signed_in? %>
+              <%= link_to "Create a fundraiser", new_campaign_path, class: "btn btn-xl btn-primary btn-custom btn-block shadow-sm" %>
+            <% else %>
+              <%= link_to "Create an account", new_user_registration_path, class: "btn btn-xl btn-primary btn-custom btn-block shadow-sm" %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div> 
+    </div>   
+<% end %>
+<div class="container" id="bfund">
+  <div class="row topspace-lg">
+    <div class="col-md-12">
+      <h2 class="page-header"><i class="fa"></i> Popular fundraisers</h2>
+      <%= render 'campaigns' %>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="text-center">
+            <%= page_entries_info @campaigns, entry_name: 'fundraisers' %>
+          </p>
+          <p class="topspace">
+            <%= link_to_previous_page @campaigns, 'Previous Page', class: "btn btn-primary btn-custom" %>
+            <%= link_to_next_page @campaigns, 'Next Page', class: "btn btn-primary btn-custom" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
