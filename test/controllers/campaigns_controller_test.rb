@@ -3,6 +3,7 @@ require 'test_helper'
 class CampaignsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
+  
   test "should load root path" do
     get root_path
     assert_response :success
