@@ -1,6 +1,7 @@
 require 'test_helper'
 
 
+
 class BankAccountsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
