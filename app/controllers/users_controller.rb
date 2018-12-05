@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+#resource registration - instead
+
+=begin	
 #before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
 before_action :correct_user,   only: [:edit, :update]
 before_action :admin_user,     only: :destroy
@@ -33,9 +37,6 @@ end
     end
   end
 
-  def edit
-    #@user = User.find(params[:id])
-  end
 #
   def update
     #@user = User.find(params[:id])
@@ -61,7 +62,7 @@ end
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
-=begin
+
     #logged-in user.
     def logged_in_user
       unless logged_in?
@@ -70,7 +71,7 @@ end
         redirect_to login_url
       end
     end
-=end
+
     #correct user
     def correct_user
       @user = User.find(params[:id])
@@ -81,5 +82,5 @@ end
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
-
+=end
 end
