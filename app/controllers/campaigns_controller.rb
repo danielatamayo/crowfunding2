@@ -12,8 +12,6 @@ class CampaignsController < ApplicationController
     unless current_user.stripe_account
       redirect_to new_stripe_account_path and return
     end
-
-
     #new fundraiser
     @campaign = Campaign.new
   end
