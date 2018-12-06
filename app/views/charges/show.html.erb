@@ -46,7 +46,7 @@
                     <% if @charge.dispute.status.eql?('needs_response') %>
                      
                       <span class="label label-danger">Needs response</span>
-                      Donation was disputed. <%= format_amount(@charge.dispute.balance_transactions.first.net.abs) %> in fees and disputed funds have been withdrawn from your account.
+                      Donation was disputed <%= format_amount(@charge.dispute.balance_transactions.first.net.abs) %> in fees and disputed funds have been withdrawn from your account.
                     <% elsif @charge.dispute.status.eql?('won') %>
                       <span class="label label-success">Won</span>
                       This dispute was won in your favor. <%= format_amount(@charge.dispute.balance_transactions.first.net.abs) %> in fees and disputed funds have been returned to your account.
