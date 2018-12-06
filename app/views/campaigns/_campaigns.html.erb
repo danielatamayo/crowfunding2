@@ -5,9 +5,9 @@
         <div class="panel panel-default campaign">
           <%= link_to campaign_path(fundraiser) do %>
             <div class="panel-body">
-              <%= image_tag("#{fundraiser.image}_sm.jpg") %>
+              <%= image_tag("#{fundraiser.image}.jpg") %>
               <div class="body-padding">
-                <h4 class="text-center"><%= link_to fundraiser.title.titleize, campaign_path(fundraiser) %></a></h4>
+                <h4 class="text-center" id="ftitle"><%= link_to fundraiser.title.titleize, campaign_path(fundraiser) %></a></h4>
                 <p class="goal text-center">
                   <% if fundraiser.raised %>
                      <span class="raised"><%= number_to_currency(fundraiser.raised/100, precision: 0) %></span> raised so far of <strong><%= number_to_currency(fundraiser.goal, precision: 0) %> goal</strong>

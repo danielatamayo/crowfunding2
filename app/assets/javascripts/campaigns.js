@@ -1,7 +1,7 @@
 $(function() {
-  $(".campaign-image").click(function(){
+  $(".fundraiser-image").click(function(){
     $(".img-thumbnail").removeClass("img-selected");
-    $("#campaign_image").val(this.id);
+    $("#fundraiser_image").val(this.id);
     $(this).children("img").addClass("img-selected");
   });
 });

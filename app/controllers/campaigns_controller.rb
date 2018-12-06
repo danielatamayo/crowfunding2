@@ -16,11 +16,14 @@ class CampaignsController < ApplicationController
 
     #new fundraiser
     @campaign = Campaign.new
+    #@organization = User.new
   end
 
   def create
     #create fundraiser
     @campaign = current_user.campaigns.new(campaign_params)
+
+
 
         #show fundraiser
         if @campaign.save
@@ -34,9 +37,9 @@ class CampaignsController < ApplicationController
   def show
     #find fundraiser
     @campaign = Campaign.find(params[:id])
-
     #charges
     @charges = Charge.where(campaign_id: @campaign.id, amount_refunded: nil).order(created_at: :desc)
+
   end
 
   def dashboard
@@ -127,7 +130,7 @@ class CampaignsController < ApplicationController
 
 
           if @campaign.update_attributes(campaign_params)
-            flash[:notice] = "Your campaign has been updated!"
+            flash[:notice] = "Your fundraiser has been updated!"
             redirect_to @campaign
           else
             handle_error(@campaign.errors.full_messages, 'edit')
@@ -140,10 +143,10 @@ class CampaignsController < ApplicationController
     campaign = Campaign.find(params[:id])
 
     if campaign.update_attributes(active: false)
-      flash[:notice] = "Your campaign has been deleted."
+      flash[:notice] = "Your fundraiser has been deleted."
       redirect_to dashboard_path
     else
-      flash[:error] = "We weren't able to delete this campaign."
+      flash[:error] = "We weren't able to delete this fundraiser"
       redirect_to dashboard_path
     end
   end

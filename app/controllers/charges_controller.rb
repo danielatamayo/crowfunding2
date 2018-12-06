@@ -130,7 +130,7 @@ class ChargesController < ApplicationController
     def check_destination(charge)
 
       unless charge.destination.eql?(current_user.stripe_account)
-        flash[:error] = "You don't have access to this charge."
+        flash[:error] = "You don't have access to charge"
         redirect_to dashboard_path
       end
     end

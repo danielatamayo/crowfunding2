@@ -1,5 +1,5 @@
 class StripeAccount < ApplicationRecord
-  has_many :campaigns
+  #has_many :campaigns
 
   validates :first_name,
   presence: true, length: { minimum: 1, maximum: 40 }

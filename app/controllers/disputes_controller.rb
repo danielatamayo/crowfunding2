@@ -1,3 +1,4 @@
+
 class DisputesController < ApplicationController
   before_action :authenticate_user!
 

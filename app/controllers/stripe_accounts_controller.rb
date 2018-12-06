@@ -38,6 +38,26 @@ class StripeAccountsController < ApplicationController
               ip: request.remote_ip
             }
           )
+
+          else
+          stripe_account = Stripe::Account.create(
+            type: 'custom',
+            legal_entity: {
+              first_name: account_params[:first_name].capitalize,
+              last_name: account_params[:last_name].capitalize,
+              type: account_params[:account_type],
+              dob: {
+                day: account_params[:dob_day],
+                month: account_params[:dob_month],
+                year: account_params[:dob_year]
+              }
+            },
+            tos_acceptance: {
+              date: Time.now.to_i,
+              ip: request.remote_ip
+            }
+          )
+
         end
    
 
@@ -155,7 +175,7 @@ class StripeAccountsController < ApplicationController
             end
 
       @stripe_account.save
-      flash[:success] = "Thanks! Your account has been updated."
+      flash[:success] = "Thanks! Your account has been updated"
       redirect_to dashboard_path and return
 
 
