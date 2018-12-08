@@ -59,8 +59,9 @@ class StripeAccountsController < ApplicationController
           )
 
         end
-   
 
+
+   
       #id
       @account.acct_id = stripe_account.id
       @account.save

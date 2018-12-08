@@ -5,11 +5,13 @@
         <div class="col-md-12">
           <div class="form-group">
             <%= f.label :account_type, "Account Type" %>
-            <%= f.select(:account_type, options_for_select([["Individual","individual"]], @account[:account_type]), {}, { class: "form-control input-lg" }) %>
+            <%= f.select(:account_type, options_for_select([["Individual","individual"], ["Company","company"]], @account[:account_type]), {}, { class: "form-control input-lg" }) %>
           </div>
         </div>
       </div>
-      <div class="row">
+
+
+      <div class="row"> <!-- add name to stripe account-->
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :first_name, "First Name" %>
@@ -58,6 +60,7 @@
       </div>
       <hr>
       
+      <% if @full_account %>
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
@@ -87,7 +90,10 @@
           </div>
         </div>
         <hr>
-      
+      <% end %>
+<!--full account-->
+
+
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
@@ -108,6 +114,8 @@
     <% end %>
   </div>
 </div>
+
+<!--for business-->
 <script>
   $(function(){
     $('#stripe_account_account_type').change(function(){
