@@ -5,7 +5,7 @@
         <div class="col-md-12">
           <div class="form-group">
             <%= f.label :account_type, "Account Type" %>
-            <%= f.select(:account_type, options_for_select([["Individual","individual"], ["Company","company"]], @account[:account_type]), {}, { class: "form-control input-lg" }) %>
+            <%= f.select(:account_type, options_for_select([["Individual","individual"], ["Organization","organization"]], @account[:account_type]), {}, { class: "form-control input-lg" }) %>
           </div>
         </div>
       </div>

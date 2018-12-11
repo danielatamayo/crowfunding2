@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 #resource registration - instead
+=begin
 
 def index 
 
@@ -34,7 +35,6 @@ end
       params.require(:user).permit(:organization, :email, :password,
                                    :password_confirmation)
     end
-=begin
 
     #correct user
     def correct_user
