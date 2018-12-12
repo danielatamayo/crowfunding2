@@ -23167,3 +23167,1113 @@ Migrating to AddAcctIdToStripeAccounts (20170502170520)
   [1m[35m (4.1ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'stripe_accounts'[0m
   [1m[35m (3.6ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
   [1m[35m (7.9ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for 127.0.0.1 at 2018-12-11 23:49:08 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (15.5ms)
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (0.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (14794.9ms)
+  Rendered campaigns/home.html.erb within layouts/application (14916.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 15470ms (Views: 15411.2ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&search=FSA" for 127.0.0.1 at 2018-12-11 23:49:55 -0600
+Processing by PagesController#search as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"FSA"}
+  Rendering pages/search.html.erb within layouts/application
+  [1m[36mUser Load (16.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (lower(email) LIKE '%fsa%')[0m
+  Rendered pages/search.html.erb within layouts/application (23.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 427ms (Views: 379.9ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-11 23:50:25 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (67.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 546ms (Views: 512.0ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-12-11 23:50:28 -0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8s0dKtnRzFTqclnpa1UWuxiTl+Kp12E3PDuNZ4LHGyZg/VKWtfdcb1Via7CCEWkYPBWc86rCTSX4RFRf2X95zw==", "user"=>{"email"=>"marissa.jain@gmail.com", "password"=>"[FILTERED]"}, "button"=>""}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'marissa.jain@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (83.9ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2018-12-12 05:50:28', `last_sign_in_at` = '2018-12-11 11:49:27', `sign_in_count` = 6, `updated_at` = '2018-12-12 05:50:28' WHERE `users`.`id` = 1[0m
+  [1m[35m (93.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 894ms (ActiveRecord: 178.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-11 23:50:29 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (0.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (11.0ms)
+  Rendered campaigns/home.html.erb within layouts/application (71.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 480ms (Views: 449.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2018-12-11 23:50:36 -0600
+Processing by CampaignsController#dashboard as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering campaigns/dashboard.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered campaigns/_verification.html.erb (0.0ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `campaigns` WHERE `campaigns`.`user_id` = 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `campaigns` WHERE `campaigns`.`user_id` = 1[0m  [["user_id", 1]]
+  [1m[36mCampaign Load (0.0ms)[0m  [1m[34mSELECT `campaigns`.* FROM `campaigns` WHERE `campaigns`.`user_id` = 1 ORDER BY `campaigns`.`created_at` DESC[0m
+  Rendered campaigns/_campaigns.html.erb (58.0ms)
+  Rendered campaigns/dashboard.html.erb within layouts/application (142.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 3798ms (Views: 471.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/stripe_accounts/acct_1Dg8SZBUOIMtqZ4F/edit" for 127.0.0.1 at 2018-12-11 23:51:03 -0600
+Processing by StripeAccountsController#edit as HTML
+  Parameters: {"id"=>"acct_1Dg8SZBUOIMtqZ4F"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mStripeAccount Load (0.0ms)[0m  [1m[34mSELECT  `stripe_accounts`.* FROM `stripe_accounts` WHERE `stripe_accounts`.`acct_id` = 'acct_1Dg8SZBUOIMtqZ4F' LIMIT 1[0m
+  Rendering stripe_accounts/edit.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered stripe_accounts/_identity_verification_form.html.erb (28.6ms)
+  Rendered stripe_accounts/edit.html.erb within layouts/application (87.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 1304ms (Views: 447.0ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-11 23:51:12 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (11.3ms)
+  Rendered campaigns/home.html.erb within layouts/application (74.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 472ms (Views: 440.1ms | ActiveRecord: 1.8ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (13.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `campaigns`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'campaigns'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `charges`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'charges'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `organizations`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'organizations'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `stripe_accounts`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'stripe_accounts'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for 127.0.0.1 at 2018-12-12 00:06:45 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (15.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (1281.1ms)
+  Rendered campaigns/home.html.erb within layouts/application (1388.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 1982ms (Views: 1920.3ms | ActiveRecord: 19.9ms)
+
+
+Started GET "/organizations/1" for 127.0.0.1 at 2018-12-12 00:08:32 -0600
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for OrganizationsController):
+  
+actionpack (5.0.7.1) lib/abstract_controller/base.rb:121:in `process'
+actionview (5.0.7.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.7.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.7.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.7.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.7.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.7.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.7.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.7.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.7.1) lib/action_dispatch/routing/route_set.rb:727:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.7.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.7.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.7.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.7.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.1) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.0ms)
+Started GET "/" for 127.0.0.1 at 2018-12-12 00:16:43 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (0.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (24.9ms)
+  Rendered campaigns/home.html.erb within layouts/application (154.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 624ms (Views: 555.4ms | ActiveRecord: 18.9ms)
+
+
+Started GET "/organizations/1" for 127.0.0.1 at 2018-12-12 00:17:17 -0600
+Processing by OrganizationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering organizations/show.html.erb within layouts/application
+  Rendered organizations/show.html.erb within layouts/application (34.9ms)
+Completed 500 Internal Server Error in 242ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User:0xc6e1978>):
+    1: <%= @organization.name %>, <%= @organization.email %>
+  
+app/views/organizations/show.html.erb:1:in `_app_views_organizations_show_html_erb__1059698750_104269368'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (2043.4ms)
+Started GET "/organizations/1" for 127.0.0.1 at 2018-12-12 00:22:16 -0600
+Processing by OrganizationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering organizations/show.html.erb within layouts/application
+  Rendered organizations/show.html.erb within layouts/application (30.9ms)
+Completed 500 Internal Server Error in 246ms (ActiveRecord: 9.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <%= @organization.name %>, <%= @organization.email %>
+  
+app/views/organizations/show.html.erb:1:in `_app_views_organizations_show_html_erb__1059698750_107992440'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (2034.4ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+Started GET "/organizations/1" for 127.0.0.1 at 2018-12-12 00:35:06 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by OrganizationsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant OrganizationsController::Organization):
+  
+app/controllers/organizations_controller.rb:3:in `show'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (43.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (2133.5ms)
+Started GET "/organizations/1" for 127.0.0.1 at 2018-12-12 00:42:17 -0600
+Processing by OrganizationsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant OrganizationsController::Organization):
+  
+app/controllers/organizations_controller.rb:4:in `show'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (2043.6ms)
+Started GET "/" for 127.0.0.1 at 2018-12-12 00:44:26 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (0.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (684.9ms)
+  Rendered campaigns/home.html.erb within layouts/application (778.7ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 1278ms (Views: 1151.5ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-12 00:44:37 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (14.9ms)
+  Rendered campaigns/home.html.erb within layouts/application (79.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 468ms (Views: 437.1ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (2571.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS `project_development`[0m
+  [1m[35m (141.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS `project_test`[0m
+  [1m[35m (96.8ms)[0m  [1m[35mCREATE DATABASE `project_development` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (87.8ms)[0m  [1m[35mCREATE DATABASE `project_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (1015.5ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (617.6ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DeviseCreateUsers (20160910151553)
+  [1m[35m (446.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `organization` varchar(255), `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (660.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_organization`  ON `users` (`organization`) [0m
+  [1m[35m (375.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (579.7ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160910151553')[0m
+  [1m[35m (51.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLessons (20160910162519)
+  [1m[35m (354.2ms)[0m  [1m[35mCREATE TABLE `lessons` (`id` int AUTO_INCREMENT PRIMARY KEY, `user_id` int, `title` varchar(255), `description` varchar(255), `price` int, `subscription` tinyint(1), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160910162519')[0m
+  [1m[35m (207.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameLessonsToCourses (20160910213144)
+  [1m[35m (506.0ms)[0m  [1m[35mRENAME TABLE `lessons` TO `courses`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (21.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160910213144')[0m
+  [1m[35m (112.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImageToCourse (20160911175135)
+  [1m[35m (2275.5ms)[0m  [1m[35mALTER TABLE `courses` ADD `image` varchar(255)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (22.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160911175135')[0m
+  [1m[35m (115.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddStripeAccountToUsers (20160911185541)
+  [1m[35m (924.5ms)[0m  [1m[35mALTER TABLE `users` ADD `stripe_account` varchar(255)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160911185541')[0m
+  [1m[35m (398.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStripeAccounts (20160911193440)
+  [1m[35m (1085.3ms)[0m  [1m[35mCREATE TABLE `stripe_accounts` (`id` int AUTO_INCREMENT PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `account_type` varchar(255), `dob_month` int, `dob_day` int, `dob_year` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160911193440')[0m
+  [1m[35m (95.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddFieldsToStripeAccount (20160911230223)
+  [1m[35m (622.3ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `address_city` varchar(255)[0m
+  [1m[35m (331.3ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `address_state` varchar(255)[0m
+  [1m[35m (322.3ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `address_line1` varchar(255)[0m
+  [1m[35m (406.9ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `address_postal` varchar(255)[0m
+  [1m[35m (298.2ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `tos` tinyint(1)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160911230223')[0m
+  [1m[35m (61.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCharges (20160913025720)
+  [1m[35m (598.0ms)[0m  [1m[35mCREATE TABLE `charges` (`id` int AUTO_INCREMENT PRIMARY KEY, `charge_id` varchar(255), `amount` int, `amount_refunded` int, `user_id` int, `course_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160913025720')[0m
+  [1m[35m (99.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeDescriptionInCourses (20160915051353)
+  [1m[35m (1416.2ms)[0m  [1m[35mALTER TABLE `courses` CHANGE `description` `description` text[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160915051353')[0m
+  [1m[35m (62.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddContentLinkToCourses (20160915051609)
+  [1m[35m (422.9ms)[0m  [1m[35mALTER TABLE `courses` ADD `content_link` varchar(255)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20160915051609')[0m
+  [1m[35m (54.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameCoursesToCampaigns (20161227175740)
+  [1m[35m (372.1ms)[0m  [1m[35mRENAME TABLE `courses` TO `campaigns`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161227175740')[0m
+  [1m[35m (62.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ModifyCampaignsAndCharges (20161227180421)
+  [1m[35m (1115.0ms)[0m  [1m[35mALTER TABLE `campaigns` DROP `content_link`[0m
+  [1m[35m (1048.2ms)[0m  [1m[35mALTER TABLE `campaigns` DROP `price`[0m
+  [1m[35m (363.2ms)[0m  [1m[35mALTER TABLE `charges` CHANGE `course_id` `campaign_id` int(11)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161227180421')[0m
+  [1m[35m (45.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGoalToCampaigns (20161227183231)
+  [1m[35m (264.3ms)[0m  [1m[35mALTER TABLE `campaigns` ADD `goal` int[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161227183231')[0m
+  [1m[35m (54.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveUserIdFromCharges (20161228174458)
+  [1m[35m (1140.0ms)[0m  [1m[35mALTER TABLE `charges` DROP `user_id`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (18.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161228174458')[0m
+  [1m[35m (69.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToCharges (20161228180341)
+  [1m[35m (830.8ms)[0m  [1m[35mALTER TABLE `charges` ADD `name` varchar(255)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (61.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161228180341')[0m
+  [1m[35m (149.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRaisedToCampaign (20161228182556)
+  [1m[35m (2497.3ms)[0m  [1m[35mALTER TABLE `campaigns` ADD `raised` int[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (80.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161228182556')[0m
+  [1m[35m (149.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddActiveToCampaign (20161228223505)
+  [1m[35m (1730.6ms)[0m  [1m[35mALTER TABLE `campaigns` ADD `active` tinyint(1) DEFAULT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20161228223505')[0m
+  [1m[35m (58.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMoreFieldsToStripeAccounts (20170405165023)
+  [1m[35m (1361.9ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `ssn_last_4` varchar(255)[0m
+  [1m[35m (587.4ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `business_name` varchar(255)[0m
+  [1m[35m (294.2ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `business_tax_id` varchar(255)[0m
+  [1m[35m (539.6ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `personal_id_number` varchar(255)[0m
+  [1m[35m (348.1ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `verification_document` varchar(255)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170405165023')[0m
+  [1m[35m (86.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAcctIdToStripeAccounts (20170502170520)
+  [1m[35m (655.3ms)[0m  [1m[35mALTER TABLE `stripe_accounts` ADD `acct_id` varchar(255)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170502170520')[0m
+  [1m[35m (53.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (46.9ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-12-12 06:49:40', '2018-12-12 06:49:40')[0m
+  [1m[35m (50.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `campaigns`[0m
+  [1m[35m (34.9ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'campaigns'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `charges`[0m
+  [1m[35m (48.9ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'charges'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `stripe_accounts`[0m
+  [1m[35m (31.1ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'stripe_accounts'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (132.6ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `campaigns`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'campaigns'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `charges`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'charges'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `stripe_accounts`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'stripe_accounts'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for 127.0.0.1 at 2018-12-12 00:50:54 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (16.9ms)
+  [1m[36mUser Load (15.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (15.6ms)
+  Rendered campaigns/home.html.erb within layouts/application (164.1ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 1127ms (Views: 1045.8ms | ActiveRecord: 39.9ms)
+
+
+Started GET "/organizations/1" for 127.0.0.1 at 2018-12-12 00:51:16 -0600
+Processing by OrganizationsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant OrganizationsController::Organization):
+  
+app/controllers/organizations_controller.rb:4:in `show'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (2037.5ms)
+Started GET "/organizations/1" for 127.0.0.1 at 2018-12-12 00:56:03 -0600
+Processing by OrganizationsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant OrganizationsController::Organization):
+  
+app/controllers/organizations_controller.rb:4:in `show'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (2029.9ms)
+Started GET "/" for 127.0.0.1 at 2018-12-12 00:56:14 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (0.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (9.6ms)
+  Rendered campaigns/home.html.erb within layouts/application (120.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 549ms (Views: 512.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/createorganization" for 127.0.0.1 at 2018-12-12 00:56:17 -0600
+Processing by OrganizationsController#new as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant OrganizationsController::Organization):
+  
+app/controllers/organizations_controller.rb:8:in `new'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (2008.9ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-12 00:59:42 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (73.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 830ms (Views: 802.5ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-12 03:55:17 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (30.9ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 735ms (Views: 733.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/createorganization" for 127.0.0.1 at 2018-12-12 03:55:34 -0600
+Processing by OrganizationsController#new as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant OrganizationsController::Organization):
+  
+app/controllers/organizations_controller.rb:8:in `new'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (2035.8ms)
+Started GET "/createorganization" for 127.0.0.1 at 2018-12-12 03:57:12 -0600
+Processing by OrganizationsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant OrganizationsController::Organizations):
+  
+app/controllers/organizations_controller.rb:8:in `new'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (2038.7ms)
+  [1m[35m (14.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateOrganizations (20181212101053)
+  [1m[35m (709.1ms)[0m  [1m[35mCREATE TABLE `organizations` (`id` int AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (11.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20181212101053')[0m
+  [1m[35m (73.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `campaigns`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'campaigns'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `charges`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'charges'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `organizations`[0m
+  [1m[35m (49.9ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'organizations'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `stripe_accounts`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'stripe_accounts'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/createorganization" for 127.0.0.1 at 2018-12-12 04:11:47 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (27.1ms)
+  Rendered organizations/new.html.erb within layouts/application (226.8ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 2355ms (Views: 2310.7ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-12 04:12:03 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (2.0ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (10.7ms)
+  Rendered campaigns/home.html.erb within layouts/application (76.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 611ms (Views: 451.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/organizations/1" for 127.0.0.1 at 2018-12-12 04:12:12 -0600
+Processing by OrganizationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrganization Load (0.0ms)[0m  [1m[34mSELECT  `organizations`.* FROM `organizations` WHERE `organizations`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Organization with 'id'=1):
+  
+app/controllers/organizations_controller.rb:4:in `show'
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (2040.4ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `organizations`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (13.2ms)[0m  [1m[32mINSERT INTO `organizations` (`name`, `email`, `created_at`, `updated_at`) VALUES ('Fake Org', 'fakeorg@gmail.com', '2018-12-12 10:14:28', '2018-12-12 10:14:28')[0m
+  [1m[35m (152.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `organizations`[0m
+Started GET "/organizations/1" for 127.0.0.1 at 2018-12-12 04:14:56 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by OrganizationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrganization Load (1.0ms)[0m  [1m[34mSELECT  `organizations`.* FROM `organizations` WHERE `organizations`.`id` = 1 LIMIT 1[0m
+  Rendering organizations/show.html.erb within layouts/application
+  Rendered organizations/show.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 989ms (Views: 936.5ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-12 04:15:18 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (2.0ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (8.0ms)
+  Rendered campaigns/home.html.erb within layouts/application (102.7ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 537ms (Views: 484.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-12 04:15:25 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (81.1ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 787ms (Views: 761.2ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/createorganization" for 127.0.0.1 at 2018-12-12 04:15:33 -0600
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered organizations/new.html.erb within layouts/application (37.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 442ms (Views: 405.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-12 04:15:40 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (33.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 736ms (Views: 734.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('279088437195799245', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to AddIndexToOrganizationsPassword (20181212101956)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (16.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20181212101956')[0m
+  [1m[35m (143.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('279088437195799245')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `campaigns`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'campaigns'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `charges`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'charges'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `organizations`[0m
+  [1m[35m (2.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'organizations'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `stripe_accounts`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'stripe_accounts'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (2.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for 127.0.0.1 at 2018-12-12 04:22:23 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (15.0ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (0.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (8.0ms)
+  Rendered campaigns/home.html.erb within layouts/application (115.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 1045ms (Views: 1001.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-12 04:22:40 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (73.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 833ms (Views: 808.9ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-12 04:23:47 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (0.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (7.9ms)
+  Rendered campaigns/home.html.erb within layouts/application (70.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 463ms (Views: 432.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-12 04:24:18 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (6.0ms)
+  Rendered campaigns/home.html.erb within layouts/application (68.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 454ms (Views: 425.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-12 04:24:48 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (6.0ms)
+  Rendered campaigns/home.html.erb within layouts/application (72.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 478ms (Views: 437.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-12 04:25:08 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (32.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 841ms (Views: 839.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-12-12 04:25:36 -0600
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2Dmr67mwDdl/3/eqBstcJzsa12EqJkoCA8CtCjcXzzqVL8j6d8geY6c52qB9Qufvwkdu9CDEJMgPetNlt1aDxQ==", "user"=>{"organization"=>"Fake Club Name", "email"=>"test.test@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "button"=>""}
+Unpermitted parameter: organization
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (20.1ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test.test@email.com' LIMIT 1[0m
+  [1m[35mSQL (20.9ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test.test@email.com', '$2a$11$cG0y7UrR1SFwN6RvNVRxzeiKtANWs3vT8l9rzHjNReNNzSNVaZWzO', '2018-12-12 10:25:36', '2018-12-12 10:25:36')[0m
+  [1m[35m (74.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (42.9ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2018-12-12 10:25:36', `last_sign_in_at` = '2018-12-12 10:25:36', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1' WHERE `users`.`id` = 1[0m
+  [1m[35m (90.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/campaigns/new
+Completed 302 Found in 1031ms (ActiveRecord: 250.5ms)
+
+
+Started GET "/campaigns/new" for 127.0.0.1 at 2018-12-12 04:25:37 -0600
+Processing by CampaignsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/stripe_accounts/new
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/stripe_accounts/new" for 127.0.0.1 at 2018-12-12 04:25:37 -0600
+Processing by StripeAccountsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering stripe_accounts/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered stripe_accounts/_account_form.html.erb (46.2ms)
+  Rendered stripe_accounts/new.html.erb within layouts/application (109.8ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 543ms (Views: 485.9ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/stripe_accounts/new" for 127.0.0.1 at 2018-12-12 04:28:51 -0600
+Processing by StripeAccountsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering stripe_accounts/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered stripe_accounts/_account_form.html.erb (4.0ms)
+  Rendered stripe_accounts/new.html.erb within layouts/application (65.8ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 459ms (Views: 422.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/stripe_accounts" for 127.0.0.1 at 2018-12-12 04:29:21 -0600
+Processing by StripeAccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VuS0YbA72FecagTUhTXtSpy7dittyoHrmwXGLDRlV/kb8tdwfkPL7USMKd7+vFaCZebPvmco7yGXv7hDtCQbBg==", "stripe_account"=>{"account_type"=>"organization", "first_name"=>"Marissa", "last_name"=>"Jain", "dob_month"=>"1", "dob_day"=>"1", "dob_year"=>"1996", "tos"=>"1"}, "button"=>""}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (12.0ms)[0m  [1m[32mINSERT INTO `stripe_accounts` (`first_name`, `last_name`, `account_type`, `dob_month`, `dob_day`, `dob_year`, `created_at`, `updated_at`, `tos`) VALUES ('Marissa', 'Jain', 'organization', 1, 1, 1996, '2018-12-12 10:29:21', '2018-12-12 10:29:21', 1)[0m
+  [1m[35m (81.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering stripe_accounts/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered stripe_accounts/_account_form.html.erb (4.0ms)
+  Rendered stripe_accounts/new.html.erb within layouts/application (67.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 1105ms (Views: 437.4ms | ActiveRecord: 94.9ms)
+
+
+Started PATCH "/stripe_accounts/1" for 127.0.0.1 at 2018-12-12 04:29:30 -0600
+Processing by StripeAccountsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LYxdHhdwmOEfMPN/FKcHWCFIcUC1gqhJYlVDlU9G/Lhgmj4P2QiLW8fW3nVvLryQ2BXI1b9gxoNu7z36zwewRw==", "stripe_account"=>{"account_type"=>"individual", "first_name"=>"Marissa", "last_name"=>"Jain", "dob_month"=>"1", "dob_day"=>"1", "dob_year"=>"1996", "tos"=>"1"}, "button"=>"", "id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/stripe_accounts/new
+Completed 302 Found in 10ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/stripe_accounts/new" for 127.0.0.1 at 2018-12-12 04:29:30 -0600
+Processing by StripeAccountsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering stripe_accounts/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered stripe_accounts/_account_form.html.erb (6.0ms)
+  Rendered stripe_accounts/new.html.erb within layouts/application (82.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 530ms (Views: 486.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/campaigns/new" for 127.0.0.1 at 2018-12-12 04:29:40 -0600
+Processing by CampaignsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/stripe_accounts/new
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/stripe_accounts/new" for 127.0.0.1 at 2018-12-12 04:29:40 -0600
+Processing by StripeAccountsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering stripe_accounts/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered stripe_accounts/_account_form.html.erb (3.0ms)
+  Rendered stripe_accounts/new.html.erb within layouts/application (65.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 451ms (Views: 418.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/campaigns/new" for 127.0.0.1 at 2018-12-12 04:29:46 -0600
+Processing by CampaignsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/stripe_accounts/new
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/stripe_accounts/new" for 127.0.0.1 at 2018-12-12 04:29:46 -0600
+Processing by StripeAccountsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering stripe_accounts/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered stripe_accounts/_account_form.html.erb (3.0ms)
+  Rendered stripe_accounts/new.html.erb within layouts/application (64.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 445ms (Views: 407.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2018-12-12 04:29:51 -0600
+Processing by CampaignsController#dashboard as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/stripe_accounts/new
+Completed 302 Found in 35ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/stripe_accounts/new" for 127.0.0.1 at 2018-12-12 04:29:51 -0600
+Processing by StripeAccountsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering stripe_accounts/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered stripe_accounts/_account_form.html.erb (4.0ms)
+  Rendered stripe_accounts/new.html.erb within layouts/application (63.8ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 445ms (Views: 412.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/stripe_accounts/full" for 127.0.0.1 at 2018-12-12 04:29:58 -0600
+Processing by StripeAccountsController#full as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering stripe_accounts/full.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered stripe_accounts/_account_form.html.erb (4.0ms)
+  Rendered stripe_accounts/full.html.erb within layouts/application (66.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 446ms (Views: 411.9ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-12-12 04:30:08 -0600
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Rq4pnbSHHnGVsvFaConhwTgJTOoEsN001Xqh8lvJbJgLuEqMev8Ny01U3FBxAFoJwVT1fw5Ss/7ZwN+d24ggZw=="}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 51ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-12 04:30:08 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (0.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (7.0ms)
+  Rendered campaigns/home.html.erb within layouts/application (72.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 447ms (Views: 415.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/createorganization" for 127.0.0.1 at 2018-12-12 04:30:11 -0600
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered organizations/new.html.erb within layouts/application (41.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 475ms (Views: 419.4ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/createorganization" for 127.0.0.1 at 2018-12-12 04:32:00 -0600
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered organizations/new.html.erb within layouts/application (34.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 417ms (Views: 384.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/createorganization" for 127.0.0.1 at 2018-12-12 04:32:24 -0600
+Processing by OrganizationsController#new as HTML
+  Rendering organizations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (2.0ms)
+  Rendered organizations/new.html.erb within layouts/application (31.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 410ms (Views: 379.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/organizations" for 127.0.0.1 at 2018-12-12 04:32:39 -0600
+Processing by OrganizationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RBNXMD3NruBJinijuJrHDHVc21Vmg55rOa/fjg01bC8vG8/xL9T+Wn4H67jJIBflJjqJDAF87haBLrS3sQ8YSw==", "organization"=>{"name"=>"Marissa", "email"=>"marissa.jain@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "button"=>""}
+Unpermitted parameters: password, password_confirmation
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrganization Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM `organizations` WHERE `organizations`.`email` = 'marissa.jain@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (27.9ms)[0m  [1m[32mINSERT INTO `organizations` (`name`, `email`, `created_at`, `updated_at`) VALUES ('Marissa', 'marissa.jain@gmail.com', '2018-12-12 10:32:39', '2018-12-12 10:32:39')[0m
+  [1m[35m (176.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/organizations/2
+Completed 302 Found in 225ms (ActiveRecord: 207.4ms)
+
+
+Started GET "/organizations/2" for 127.0.0.1 at 2018-12-12 04:32:39 -0600
+Processing by OrganizationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOrganization Load (0.0ms)[0m  [1m[34mSELECT  `organizations`.* FROM `organizations` WHERE `organizations`.`id` = 2 LIMIT 1[0m
+  Rendering organizations/show.html.erb within layouts/application
+  Rendered organizations/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 420ms (Views: 374.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-12 04:33:10 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (30.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 500ms (Views: 497.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-12 04:33:56 -0600
+Processing by CampaignsController#home as HTML
+  Rendering campaigns/home.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM `campaigns` WHERE `campaigns`.`active` = 1 LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCampaign Load (1.0ms)[0m  [1m[34mSELECT  `campaigns`.* FROM `campaigns` WHERE `campaigns`.`active` = 1 ORDER BY `campaigns`.`created_at` DESC LIMIT 6 OFFSET 0[0m
+  Rendered campaigns/_campaigns.html.erb (6.0ms)
+  Rendered campaigns/home.html.erb within layouts/application (69.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 439ms (Views: 409.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-12 04:34:02 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (36.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 755ms (Views: 753.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-12-12 04:34:09 -0600
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (31.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 506ms (Views: 504.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-12-12 04:34:20 -0600
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_messages.html.erb (0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (33.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 695ms (Views: 692.0ms | ActiveRecord: 0.0ms)
+
+

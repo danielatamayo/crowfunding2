@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'organizations/new'
+
   #controller
   devise_for :users, controllers: { registrations: "registrations" }
 
@@ -18,8 +20,11 @@ Rails.application.routes.draw do
   get 'payouts/:id', to: 'payouts#show', as: 'payout'
   post 'webhooks/stripe', to: 'webhooks#stripe'
   
+  get '/createorganization', to: 'organizations#new'
  
   resources :users
+
+  resources :organizations
 
   resources :campaigns
 
